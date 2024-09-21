@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "paper-lanterns:block/paper_lantern"
+    }
+  }
+}
