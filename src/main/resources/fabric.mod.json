@@ -3,7 +3,7 @@
 	"id": "paper-lanterns",
 	"version": "${version}",
 	"name": "Paper Lanterns",
-	"description": "Adds the Paper Lantern (formerly from Blocks for Builders) into the game.",
+	"description": "Re-adds Blocks for Builders' Paper Lantern to the game.",
 	"authors": [
 		"disjoint"
 	],
