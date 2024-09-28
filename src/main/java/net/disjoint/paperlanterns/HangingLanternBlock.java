@@ -1,6 +1,5 @@
 package net.disjoint.paperlanterns;
 
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -31,6 +30,6 @@ public class HangingLanternBlock extends LanternBlock {
         return state;
     }
     public HangingLanternBlock() {
-        super(FabricBlockSettings.copyOf(Blocks.LANTERN));
+        super(AbstractBlock.Settings.copy(Blocks.LANTERN));
     }
 }
