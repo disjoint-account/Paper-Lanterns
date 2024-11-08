@@ -11,7 +11,7 @@
 		"sources": "https://github.com/disjoint-account/PaperLanterns",
 		"issues": "https://github.com/disjoint-account/PaperLanterns/issues"
 	},
-	"license": "CC0-1.0",
+	"license": "MIT",
 	"icon": "assets/paper-lanterns/icon.png",
 	"environment": "*",
 	"entrypoints": {

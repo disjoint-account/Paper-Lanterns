@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "L": {
-      "item": "minecraft:lantern"
-    },
-    "P": {
-      "item": "minecraft:paper"
-    }
+    "L": "minecraft:lantern",
+    "P": "minecraft:paper"
   },
   "pattern": [
     "PPP",

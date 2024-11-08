@@ -14,6 +14,9 @@ public class HangingLanternBlock extends LanternBlock {
 
     private static final VoxelShape SHAPE = Block.createCuboidShape(3, 0, 3, 13, 16, 13);
 
+    public HangingLanternBlock(Settings settings) {
+        super(settings);
+    }
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         return SHAPE;
@@ -28,8 +31,5 @@ public class HangingLanternBlock extends LanternBlock {
             return Blocks.AIR.getDefaultState();
         }
         return state;
-    }
-    public HangingLanternBlock() {
-        super(AbstractBlock.Settings.copy(Blocks.LANTERN));
     }
 }
