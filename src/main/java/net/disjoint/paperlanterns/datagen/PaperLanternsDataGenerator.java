@@ -7,6 +7,7 @@ public class PaperLanternsDataGenerator implements DataGeneratorEntrypoint {
 	@Override
 	public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
 		FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
+		pack.addProvider(PaperLanternsBlockStateModelGenerator::new);
 		pack.addProvider(PaperLanternsRecipeGenerator::new);
 		pack.addProvider(PaperLanternsBlockTagProvider::new);
 		pack.addProvider(PaperLanternsLootTableGenerator::new);

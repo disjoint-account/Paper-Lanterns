@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "paper-lanterns:item/paper_lantern"
+  }
+}
