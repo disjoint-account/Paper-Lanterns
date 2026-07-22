@@ -1,19 +1,19 @@
 package net.disjoint.paperlanterns;
 
-import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
+import net.fabricmc.fabric.api.creativetab.v1.FabricCreativeModeTab;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.Registry;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.Identifier;
 
 public class PaperLanternsItemGroup {
-    public static ItemGroup PAPERLANTERNS = Registry.register(Registries.ITEM_GROUP,
-            Identifier.of(PaperLanterns.MOD_ID, "paper-lanterns"),
-            FabricItemGroup.builder().displayName(Text.translatable("itemgroup.paper-lanterns"))
-                    .icon(() -> new ItemStack(PaperLanternsBlocks.PAPER_LANTERN.asItem())).entries((displayContext, entries) -> {
-                        entries.add(PaperLanternsBlocks.PAPER_LANTERN);
+    public static CreativeModeTab PAPERLANTERNS = Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB,
+            Identifier.fromNamespaceAndPath(PaperLanterns.MOD_ID, "paper-lanterns"),
+            FabricCreativeModeTab.builder().title(Component.translatable("itemgroup.paper-lanterns"))
+                    .icon(() -> new ItemStack(PaperLanternsBlocks.PAPER_LANTERN.asItem())).displayItems((displayContext, entries) -> {
+                        entries.accept(PaperLanternsBlocks.PAPER_LANTERN);
 
                     }).build());
     public static void registerItemGroups() {

@@ -1,37 +1,37 @@
 package net.disjoint.paperlanterns;
 
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.util.Identifier;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.Identifier;
 
 import java.util.function.Function;
 
 public class PaperLanternsBlocks {
     public static final Block PAPER_LANTERN = registerBlock("paper_lantern",
-            HangingLanternBlock::new, AbstractBlock.Settings.copy(Blocks.LANTERN));
+            HangingLanternBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.LANTERN));
 
-    private static Block registerBlock(String name, Function<AbstractBlock.Settings, Block> factory, AbstractBlock.Settings settings) {
+    private static Block registerBlock(String name, Function<BlockBehaviour.Properties, Block> factory, BlockBehaviour.Properties settings) {
         return registerBlock(name, true, factory, settings);
     }
-    private static Block registerBlock(String name, boolean createItem, Function<AbstractBlock.Settings, Block> factory, AbstractBlock.Settings settings) {
+    private static Block registerBlock(String name, boolean createItem, Function<BlockBehaviour.Properties, Block> factory, BlockBehaviour.Properties settings) {
         Block block = Blocks.register(keyOf(name), factory, settings);
         if (createItem) { registerBlockItem(name, block); }
         return block;
     }
-    private static RegistryKey<Block> keyOf(String name) {
-        return RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(PaperLanterns.MOD_ID, name));
+    private static ResourceKey<Block> keyOf(String name) {
+        return ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(PaperLanterns.MOD_ID, name));
     }
     private static void registerBlockItem(String name, Block block) {
-        Identifier id = Identifier.of(PaperLanterns.MOD_ID, name);
-        RegistryKey<Item> key = RegistryKey.of(RegistryKeys.ITEM, id);
-        Registry.register(Registries.ITEM, key, new BlockItem(block, new Item.Settings().useBlockPrefixedTranslationKey().registryKey(key)));
+        Identifier id = Identifier.fromNamespaceAndPath(PaperLanterns.MOD_ID, name);
+        ResourceKey<Item> key = ResourceKey.create(Registries.ITEM, id);
+        Registry.register(BuiltInRegistries.ITEM, key, new BlockItem(block, new net.minecraft.world.item.Item.Properties().useBlockDescriptionPrefix().setId(key)));
     }
     public static void registerModBlocks() {
         PaperLanterns.LOGGER.info("Registering blocks for " + PaperLanterns.MOD_ID);

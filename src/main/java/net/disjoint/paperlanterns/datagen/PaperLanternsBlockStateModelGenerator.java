@@ -2,22 +2,22 @@ package net.disjoint.paperlanterns.datagen;
 
 import net.disjoint.paperlanterns.PaperLanternsBlocks;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.minecraft.client.data.BlockStateModelGenerator;
-import net.minecraft.client.data.ItemModelGenerator;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
+import net.minecraft.client.data.models.BlockModelGenerators;
+import net.minecraft.client.data.models.ItemModelGenerators;
 
 public class PaperLanternsBlockStateModelGenerator extends FabricModelProvider {
 
-    public PaperLanternsBlockStateModelGenerator(FabricDataOutput output) {
+    public PaperLanternsBlockStateModelGenerator(FabricPackOutput output) {
         super(output);
     }
 
     @Override
-    public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
+    public void generateBlockStateModels(BlockModelGenerators blockStateModelGenerator) {
     }
 
     @Override
-    public void generateItemModels(ItemModelGenerator itemModelGenerator) {
-        itemModelGenerator.register(PaperLanternsBlocks.PAPER_LANTERN.asItem());
+    public void generateItemModels(ItemModelGenerators itemModelGenerator) {
+        itemModelGenerator.declareCustomModelItem(PaperLanternsBlocks.PAPER_LANTERN.asItem());
     }
 }
