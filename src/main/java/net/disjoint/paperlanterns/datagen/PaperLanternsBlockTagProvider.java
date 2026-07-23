@@ -16,7 +16,7 @@ public class PaperLanternsBlockTagProvider extends FabricTagsProvider.BlockTagsP
 
     @Override
     protected void addTags(HolderLookup.Provider wrapperLookup) {
-        valueLookupBuilder(MINEABLE_WITH_PICKAXE)
-                .add(PaperLanternsBlocks.PAPER_LANTERN);
+        tag(MINEABLE_WITH_PICKAXE)
+                .add(PaperLanternsBlocks.getResourceKey(PaperLanternsBlocks.PAPER_LANTERN));
     }
 }

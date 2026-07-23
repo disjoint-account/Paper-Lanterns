@@ -36,4 +36,8 @@ public class PaperLanternsBlocks {
     public static void registerModBlocks() {
         PaperLanterns.LOGGER.info("Registering blocks for " + PaperLanterns.MOD_ID);
     }
+
+    public static ResourceKey<Block> getResourceKey(Block block) {
+        return BuiltInRegistries.BLOCK.getResourceKey(block).get();
+    }
 }
